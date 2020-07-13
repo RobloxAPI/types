@@ -110,3 +110,7 @@ func (v Vector3) MulN(op float64) Vector3 {
 func (v Vector3) DivN(op float64) Vector3 {
 	return Vector3{X: v.X / float32(op), Y: v.Y / float32(op), Z: v.Z / float32(op)}
 }
+
+func (v Vector3) Neg() Vector3 {
+	return Vector3{X: -v.X, Y: -v.Y, Z: -v.Z}
+}
