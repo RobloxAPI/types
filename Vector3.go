@@ -2,6 +2,7 @@ package types
 
 import (
 	"math"
+	"strconv"
 )
 
 type Vector3 struct {
@@ -113,4 +114,14 @@ func (v Vector3) DivN(op float64) Vector3 {
 
 func (v Vector3) Neg() Vector3 {
 	return Vector3{X: -v.X, Y: -v.Y, Z: -v.Z}
+}
+
+func (v Vector3) String() string {
+	var b []byte
+	b = strconv.AppendFloat(b, float64(v.X), 'g', -1, 32)
+	b = append(b, ", "...)
+	b = strconv.AppendFloat(b, float64(v.Y), 'g', -1, 32)
+	b = append(b, ", "...)
+	b = strconv.AppendFloat(b, float64(v.Z), 'g', -1, 32)
+	return string(b)
 }

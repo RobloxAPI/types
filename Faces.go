@@ -1,5 +1,9 @@
 package types
 
+import (
+	"strconv"
+)
+
 // Axes represents a set of coordinate axes that are considered active.
 type Faces struct {
 	Right, Top, Back, Left, Bottom, Front bool
@@ -46,4 +50,22 @@ func NewFacesFromFace(faces ...Face) Faces {
 		}
 	}
 	return f
+}
+
+// String returns a string representation of the Faces.
+func (f Faces) String() string {
+	var b []byte
+	b = append(b, "Right:"...)
+	b = strconv.AppendBool(b, f.Right)
+	b = append(b, ", Top:"...)
+	b = strconv.AppendBool(b, f.Top)
+	b = append(b, ", Back:"...)
+	b = strconv.AppendBool(b, f.Back)
+	b = append(b, ", Left:"...)
+	b = strconv.AppendBool(b, f.Left)
+	b = append(b, ", Bottom:"...)
+	b = strconv.AppendBool(b, f.Bottom)
+	b = append(b, ", Front:"...)
+	b = strconv.AppendBool(b, f.Front)
+	return string(b)
 }

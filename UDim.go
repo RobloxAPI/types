@@ -1,5 +1,9 @@
 package types
 
+import (
+	"strconv"
+)
+
 type UDim struct {
 	Scale  float32
 	Offset int32
@@ -24,4 +28,12 @@ func (u UDim) Neg() UDim {
 		Scale:  -u.Scale,
 		Offset: -u.Offset,
 	}
+}
+
+func (u UDim) String() string {
+	var b []byte
+	b = strconv.AppendFloat(b, float64(u.Scale), 'g', -1, 32)
+	b = append(b, ", "...)
+	b = strconv.AppendInt(b, int64(u.Offset), 10)
+	return string(b)
 }

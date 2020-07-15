@@ -1,5 +1,9 @@
 package types
 
+import (
+	"strconv"
+)
+
 type Color3 struct {
 	R, G, B float32
 }
@@ -22,4 +26,14 @@ func (c Color3) Lerp(goal Color3, alpha float64) Color3 {
 
 func (c Color3) ToHSV() (h, s, v float64) {
 	panic("not implemented")
+}
+
+func (c Color3) String() string {
+	var b []byte
+	b = strconv.AppendFloat(b, float64(c.R), 'g', -1, 32)
+	b = append(b, ", "...)
+	b = strconv.AppendFloat(b, float64(c.G), 'g', -1, 32)
+	b = append(b, ", "...)
+	b = strconv.AppendFloat(b, float64(c.B), 'g', -1, 32)
+	return string(b)
 }

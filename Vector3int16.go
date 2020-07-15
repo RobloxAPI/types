@@ -1,5 +1,9 @@
 package types
 
+import (
+	"strconv"
+)
+
 type Vector3int16 struct {
 	X, Y, Z int16
 }
@@ -34,4 +38,14 @@ func (v Vector3int16) DivN(op float64) Vector3int16 {
 
 func (v Vector3int16) Neg() Vector3int16 {
 	return Vector3int16{X: -v.X, Y: -v.Y, Z: -v.Z}
+}
+
+func (v Vector3int16) String() string {
+	var b []byte
+	b = strconv.AppendInt(b, int64(v.X), 10)
+	b = append(b, ", "...)
+	b = strconv.AppendInt(b, int64(v.Y), 10)
+	b = append(b, ", "...)
+	b = strconv.AppendInt(b, int64(v.Z), 10)
+	return string(b)
 }

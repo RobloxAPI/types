@@ -107,3 +107,7 @@ func (b BrickColor) Name() string {
 	i := b.Index()
 	return bcNames[bcNamesIndex[i]:bcNamesIndex[i+1]]
 }
+
+func (b BrickColor) String() string {
+	return b.Name()
+}

@@ -17,3 +17,11 @@ func (r Region3) Size() Vector3 {
 func (r Region3) ExpandToGrid(res int) Region3 {
 	panic("not implemented")
 }
+
+func (r Region3) String() string {
+	var b []byte
+	b = append(b, r.Min.String()...)
+	b = append(b, "; "...)
+	b = append(b, r.Max.String()...)
+	return string(b)
+}

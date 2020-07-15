@@ -28,3 +28,11 @@ func (u UDim2) Neg() UDim2 {
 		Y: u.Y.Neg(),
 	}
 }
+
+func (u UDim2) String() string {
+	var b []byte
+	b = append(b, u.X.String()...)
+	b = append(b, "; "...)
+	b = append(b, u.Y.String()...)
+	return string(b)
+}

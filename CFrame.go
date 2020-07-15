@@ -1,5 +1,9 @@
 package types
 
+import (
+	"strconv"
+)
+
 type CFrame struct {
 	Position Vector3
 	Rotation [9]float32
@@ -164,4 +168,18 @@ func (c CFrame) AddVec(op Vector3) CFrame {
 
 func (c CFrame) SubVec(op Vector3) CFrame {
 	panic("not implemented")
+}
+
+func (c CFrame) String() string {
+	var b []byte
+	b = strconv.AppendFloat(b, float64(c.Position.X), 'g', -1, 32)
+	b = append(b, ", "...)
+	b = strconv.AppendFloat(b, float64(c.Position.Y), 'g', -1, 32)
+	b = append(b, ", "...)
+	b = strconv.AppendFloat(b, float64(c.Position.Z), 'g', -1, 32)
+	for _, r := range c.Rotation {
+		b = append(b, ", "...)
+		b = strconv.AppendFloat(b, float64(r), 'g', -1, 32)
+	}
+	return string(b)
 }
