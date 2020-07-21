@@ -30,6 +30,11 @@ func (u UDim) Neg() UDim {
 	}
 }
 
+// Type returns a string identifying the type.
+func (UDim) Type() string {
+	return "UDim"
+}
+
 func (u UDim) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(u.Scale), 'g', -1, 32)

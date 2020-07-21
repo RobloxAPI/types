@@ -108,6 +108,11 @@ func (b BrickColor) Name() string {
 	return bcNames[bcNamesIndex[i]:bcNamesIndex[i+1]]
 }
 
+// Type returns a string identifying the type.
+func (BrickColor) Type() string {
+	return "BrickColor"
+}
+
 func (b BrickColor) String() string {
 	return b.Name()
 }

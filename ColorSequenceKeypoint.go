@@ -10,6 +10,11 @@ type ColorSequenceKeypoint struct {
 	Envelope float32
 }
 
+// Type returns a string identifying the type.
+func (ColorSequenceKeypoint) Type() string {
+	return "ColorSequenceKeypoint"
+}
+
 func (c ColorSequenceKeypoint) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(c.Time), 'g', -1, 32)

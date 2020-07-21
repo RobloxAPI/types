@@ -8,6 +8,11 @@ type NumberRange struct {
 	Min, Max float32
 }
 
+// Type returns a string identifying the type.
+func (NumberRange) Type() string {
+	return "NumberRange"
+}
+
 func (n NumberRange) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(n.Min), 'g', -1, 32)

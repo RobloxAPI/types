@@ -10,12 +10,17 @@ type NumberSequenceKeypoint struct {
 	Envelope float32
 }
 
-func (c NumberSequenceKeypoint) String() string {
+// Type returns a string identifying the type.
+func (NumberSequenceKeypoint) Type() string {
+	return "NumberSequenceKeypoint"
+}
+
+func (n NumberSequenceKeypoint) String() string {
 	var b []byte
-	b = strconv.AppendFloat(b, float64(c.Time), 'g', -1, 32)
+	b = strconv.AppendFloat(b, float64(n.Time), 'g', -1, 32)
 	b = append(b, ", "...)
-	b = strconv.AppendFloat(b, float64(c.Value), 'g', -1, 32)
+	b = strconv.AppendFloat(b, float64(n.Value), 'g', -1, 32)
 	b = append(b, ", "...)
-	b = strconv.AppendFloat(b, float64(c.Time), 'g', -1, 32)
+	b = strconv.AppendFloat(b, float64(n.Time), 'g', -1, 32)
 	return string(b)
 }

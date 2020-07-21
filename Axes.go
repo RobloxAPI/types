@@ -56,6 +56,11 @@ func (a Axes) Face(face Face) bool {
 	return false
 }
 
+// Type returns a string identifying the type.
+func (Axes) Type() string {
+	return "Axes"
+}
+
 // String returns a string representation of the Axes.
 func (a Axes) String() string {
 	var b []byte

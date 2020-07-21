@@ -28,6 +28,11 @@ func (c Color3) ToHSV() (h, s, v float64) {
 	panic("not implemented")
 }
 
+// Type returns a string identifying the type.
+func (Color3) Type() string {
+	return "Color3"
+}
+
 func (c Color3) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(c.R), 'g', -1, 32)

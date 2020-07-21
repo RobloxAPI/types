@@ -40,6 +40,11 @@ func (v Vector3int16) Neg() Vector3int16 {
 	return Vector3int16{X: -v.X, Y: -v.Y, Z: -v.Z}
 }
 
+// Type returns a string identifying the type.
+func (Vector3int16) Type() string {
+	return "Vector3int16"
+}
+
 func (v Vector3int16) String() string {
 	var b []byte
 	b = strconv.AppendInt(b, int64(v.X), 10)

@@ -13,6 +13,11 @@ type PhysicalProperties struct {
 	ElasticityWeight float32
 }
 
+// Type returns a string identifying the type.
+func (PhysicalProperties) Type() string {
+	return "PhysicalProperties"
+}
+
 func (p PhysicalProperties) String() string {
 	if !p.CustomPhysics {
 		return "(default)"

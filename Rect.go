@@ -12,6 +12,11 @@ func (r Rect) Height() float64 {
 	return float64(r.Max.Y - r.Min.Y)
 }
 
+// Type returns a string identifying the type.
+func (Rect) Type() string {
+	return "Rect"
+}
+
 func (r Rect) String() string {
 	var b []byte
 	b = append(b, r.Min.String()...)

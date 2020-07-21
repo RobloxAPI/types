@@ -80,6 +80,11 @@ func (v Vector2) Neg() Vector2 {
 	return Vector2{X: -v.X, Y: -v.Y}
 }
 
+// Type returns a string identifying the type.
+func (Vector2) Type() string {
+	return "Vector2"
+}
+
 func (v Vector2) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(v.X), 'g', -1, 32)

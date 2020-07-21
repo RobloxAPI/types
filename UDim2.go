@@ -29,6 +29,11 @@ func (u UDim2) Neg() UDim2 {
 	}
 }
 
+// Type returns a string identifying the type.
+func (UDim2) Type() string {
+	return "UDim2"
+}
+
 func (u UDim2) String() string {
 	var b []byte
 	b = append(b, u.X.String()...)

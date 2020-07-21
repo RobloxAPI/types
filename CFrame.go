@@ -170,6 +170,11 @@ func (c CFrame) SubVec(op Vector3) CFrame {
 	panic("not implemented")
 }
 
+// Type returns a string identifying the type.
+func (CFrame) Type() string {
+	return "CFrame"
+}
+
 func (c CFrame) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(c.Position.X), 'g', -1, 32)

@@ -2,9 +2,14 @@ package types
 
 type NumberSequence []NumberSequenceKeypoint
 
-func (c NumberSequence) String() string {
+// Type returns a string identifying the type.
+func (NumberSequence) Type() string {
+	return "NumberSequence"
+}
+
+func (n NumberSequence) String() string {
 	var b []byte
-	for i, k := range c {
+	for i, k := range n {
 		if i > 0 {
 			b = append(b, "; "...)
 		}

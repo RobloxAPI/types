@@ -52,6 +52,11 @@ func NewFacesFromFace(faces ...Face) Faces {
 	return f
 }
 
+// Type returns a string identifying the type.
+func (Faces) Type() string {
+	return "Faces"
+}
+
 // String returns a string representation of the Faces.
 func (f Faces) String() string {
 	var b []byte

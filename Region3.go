@@ -18,6 +18,11 @@ func (r Region3) ExpandToGrid(res int) Region3 {
 	panic("not implemented")
 }
 
+// Type returns a string identifying the type.
+func (Region3) Type() string {
+	return "Region3"
+}
+
 func (r Region3) String() string {
 	var b []byte
 	b = append(b, r.Min.String()...)
