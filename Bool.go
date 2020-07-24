@@ -6,6 +6,9 @@ import (
 
 type Bool bool
 
+const True = Bool(true)
+const False = Bool(false)
+
 func (Bool) Type() string {
 	return "bool"
 }
