@@ -130,3 +130,7 @@ func (v Vector3) String() string {
 	b = strconv.AppendFloat(b, float64(v.Z), 'g', -1, 32)
 	return string(b)
 }
+
+func (v Vector3) Copy() PropValue {
+	return v
+}

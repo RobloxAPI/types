@@ -74,3 +74,7 @@ func (f Faces) String() string {
 	b = strconv.AppendBool(b, f.Front)
 	return string(b)
 }
+
+func (f Faces) Copy() PropValue {
+	return f
+}

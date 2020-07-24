@@ -42,3 +42,7 @@ func (u UDim) String() string {
 	b = strconv.AppendInt(b, int64(u.Offset), 10)
 	return string(b)
 }
+
+func (u UDim) Copy() PropValue {
+	return u
+}

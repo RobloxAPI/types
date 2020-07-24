@@ -17,3 +17,9 @@ func (n NumberSequence) String() string {
 	}
 	return string(b)
 }
+
+func (n NumberSequence) Copy() PropValue {
+	c := make(NumberSequence, len(n))
+	copy(c, n)
+	return c
+}

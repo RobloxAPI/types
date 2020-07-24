@@ -30,3 +30,7 @@ func (r Region3) String() string {
 	b = append(b, r.Max.String()...)
 	return string(b)
 }
+
+func (r Region3) Copy() PropValue {
+	return r
+}

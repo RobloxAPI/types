@@ -16,3 +16,7 @@ func (r Region3int16) String() string {
 	b = append(b, r.Max.String()...)
 	return string(b)
 }
+
+func (r Region3int16) Copy() PropValue {
+	return r
+}

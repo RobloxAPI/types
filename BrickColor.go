@@ -116,3 +116,7 @@ func (BrickColor) Type() string {
 func (b BrickColor) String() string {
 	return b.Name()
 }
+
+func (b BrickColor) Copy() PropValue {
+	return b
+}

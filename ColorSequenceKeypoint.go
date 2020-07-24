@@ -24,3 +24,7 @@ func (c ColorSequenceKeypoint) String() string {
 	b = strconv.AppendFloat(b, float64(c.Time), 'g', -1, 32)
 	return string(b)
 }
+
+func (c ColorSequenceKeypoint) Copy() PropValue {
+	return c
+}

@@ -24,3 +24,7 @@ func (r Rect) String() string {
 	b = append(b, r.Max.String()...)
 	return string(b)
 }
+
+func (r Rect) Copy() PropValue {
+	return r
+}

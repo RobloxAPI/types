@@ -24,3 +24,7 @@ func (n NumberSequenceKeypoint) String() string {
 	b = strconv.AppendFloat(b, float64(n.Time), 'g', -1, 32)
 	return string(b)
 }
+
+func (n NumberSequenceKeypoint) Copy() PropValue {
+	return n
+}

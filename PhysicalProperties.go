@@ -34,3 +34,7 @@ func (p PhysicalProperties) String() string {
 	b = strconv.AppendFloat(b, float64(p.ElasticityWeight), 'g', -1, 32)
 	return string(b)
 }
+
+func (p PhysicalProperties) Copy() PropValue {
+	return p
+}

@@ -20,3 +20,7 @@ func (n NumberRange) String() string {
 	b = strconv.AppendFloat(b, float64(n.Max), 'g', -1, 32)
 	return string(b)
 }
+
+func (n NumberRange) Copy() PropValue {
+	return n
+}

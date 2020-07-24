@@ -92,3 +92,7 @@ func (v Vector2) String() string {
 	b = strconv.AppendFloat(b, float64(v.Y), 'g', -1, 32)
 	return string(b)
 }
+
+func (v Vector2) Copy() PropValue {
+	return v
+}

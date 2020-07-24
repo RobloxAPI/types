@@ -72,3 +72,7 @@ func (a Axes) String() string {
 	b = strconv.AppendBool(b, a.Z)
 	return string(b)
 }
+
+func (a Axes) Copy() PropValue {
+	return a
+}

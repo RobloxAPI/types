@@ -188,3 +188,7 @@ func (c CFrame) String() string {
 	}
 	return string(b)
 }
+
+func (c CFrame) Copy() PropValue {
+	return c
+}

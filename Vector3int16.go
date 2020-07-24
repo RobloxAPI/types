@@ -54,3 +54,7 @@ func (v Vector3int16) String() string {
 	b = strconv.AppendInt(b, int64(v.Z), 10)
 	return string(b)
 }
+
+func (v Vector3int16) Copy() PropValue {
+	return v
+}

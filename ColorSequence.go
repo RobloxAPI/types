@@ -17,3 +17,9 @@ func (c ColorSequence) String() string {
 	}
 	return string(b)
 }
+
+func (c ColorSequence) Copy() PropValue {
+	d := make(ColorSequence, len(c))
+	copy(d, c)
+	return d
+}

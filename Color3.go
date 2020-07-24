@@ -42,3 +42,7 @@ func (c Color3) String() string {
 	b = strconv.AppendFloat(b, float64(c.B), 'g', -1, 32)
 	return string(b)
 }
+
+func (c Color3) Copy() PropValue {
+	return c
+}

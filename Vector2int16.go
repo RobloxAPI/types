@@ -52,3 +52,7 @@ func (v Vector2int16) String() string {
 	b = strconv.AppendInt(b, int64(v.Y), 10)
 	return string(b)
 }
+
+func (v Vector2int16) Copy() PropValue {
+	return v
+}

@@ -41,3 +41,7 @@ func (u UDim2) String() string {
 	b = append(b, u.Y.String()...)
 	return string(b)
 }
+
+func (u UDim2) Copy() PropValue {
+	return u
+}

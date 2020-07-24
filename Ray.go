@@ -25,3 +25,7 @@ func (r Ray) String() string {
 	b = append(b, r.Direction.String()...)
 	return string(b)
 }
+
+func (r Ray) Copy() PropValue {
+	return r
+}
