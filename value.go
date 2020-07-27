@@ -17,6 +17,12 @@ type PropValue interface {
 	Copy() PropValue
 }
 
+// Aliaser is a Value that has an underlying Value of a different type.
+type Aliaser interface {
+	Value
+	Alias() Value
+}
+
 // Stringlike is any Value that is string-like. Note that this is distinct from
 // a string-representation of the value. Rather, Stringlike indicates that the
 // value has string-like properties.
