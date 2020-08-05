@@ -5,7 +5,18 @@ type UDim2 struct {
 }
 
 func (u UDim2) Lerp(goal UDim2, alpha float64) UDim2 {
-	panic("not implemented")
+	a := float32(alpha)
+	na := 1 - a
+	return UDim2{
+		X: UDim{
+			Scale:  na*u.X.Scale + a*goal.X.Scale,
+			Offset: int32(na*float32(u.X.Offset) + a*float32(goal.X.Offset)),
+		},
+		Y: UDim{
+			Scale:  na*u.Y.Scale + a*goal.Y.Scale,
+			Offset: int32(na*float32(u.Y.Offset) + a*float32(goal.Y.Offset)),
+		},
+	}
 }
 
 func (u UDim2) Add(v UDim2) UDim2 {

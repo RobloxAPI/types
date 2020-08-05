@@ -21,7 +21,13 @@ func NewColor3FromHSV(h, s, v float64) Color3 {
 }
 
 func (c Color3) Lerp(goal Color3, alpha float64) Color3 {
-	panic("not implemented")
+	a := float32(alpha)
+	na := 1 - a
+	return Color3{
+		R: na*c.R + a*goal.R,
+		G: na*c.G + a*goal.G,
+		B: na*c.B + a*goal.B,
+	}
 }
 
 func (c Color3) ToHSV() (h, s, v float64) {
