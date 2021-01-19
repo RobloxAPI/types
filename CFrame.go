@@ -218,7 +218,7 @@ func (c CFrame) UpVector() Vector3 {
 // LookVector returns the forward-direction, or the negation of the third column
 // of the rotation matrix.
 func (c CFrame) LookVector() Vector3 {
-	return Vector3{c.Rotation[2], c.Rotation[5], c.Rotation[8]}
+	return Vector3{-c.Rotation[2], -c.Rotation[5], -c.Rotation[8]}
 }
 
 // Inverse returns the inverse of the CFrame.
