@@ -283,25 +283,25 @@ func (c CFrame) ToObjectSpace(cf CFrame) CFrame {
 // PointToWorldSpace returns a Vector3 transformed from local to world space of
 // the CFrame.
 func (c CFrame) PointToWorldSpace(v Vector3) Vector3 {
-	return c.MulVec(v)
+	return c.MulV3(v)
 }
 
 // PointToObjectSpace returns a Vector3 transformed from world to local space of
 // the CFrame.
 func (c CFrame) PointToObjectSpace(v Vector3) Vector3 {
-	return c.Inverse().MulVec(v)
+	return c.Inverse().MulV3(v)
 }
 
 // VectorToWorldSpace returns a Vector3 rotated from local to world space of the
 // CFrame.
 func (c CFrame) VectorToWorldSpace(v Vector3) Vector3 {
-	return CFrame{Rotation: c.Rotation}.MulVec(v)
+	return CFrame{Rotation: c.Rotation}.MulV3(v)
 }
 
 // VectorToObjectSpace returns a Vector3 rotated from world to local space of
 // the CFrame.
 func (c CFrame) VectorToObjectSpace(v Vector3) Vector3 {
-	return CFrame{Rotation: c.Rotation}.Inverse().MulVec(v)
+	return CFrame{Rotation: c.Rotation}.Inverse().MulV3(v)
 }
 
 // Components returns the components of the CFrame's position and rotation
@@ -402,8 +402,8 @@ func (a CFrame) Mul(b CFrame) CFrame {
 	}
 }
 
-// MulVec returns *op* transformed from local to world space of the CFrame.
-func (c CFrame) MulVec(op Vector3) Vector3 {
+// MulV3 returns *op* transformed from local to world space of the CFrame.
+func (c CFrame) MulV3(op Vector3) Vector3 {
 	return Vector3{
 		float32(Vector3{c.Rotation[0], c.Rotation[1], c.Rotation[2]}.Dot(op)) + c.Position.X,
 		float32(Vector3{c.Rotation[3], c.Rotation[4], c.Rotation[5]}.Dot(op)) + c.Position.Y,
@@ -411,16 +411,16 @@ func (c CFrame) MulVec(op Vector3) Vector3 {
 	}
 }
 
-// AddVec returns the CFrame translated in world space by *op*.
-func (c CFrame) AddVec(op Vector3) CFrame {
+// AddV3 returns the CFrame translated in world space by *op*.
+func (c CFrame) AddV3(op Vector3) CFrame {
 	return CFrame{
 		Position: c.Position.Add(op),
 		Rotation: c.Rotation,
 	}
 }
 
-// SubVec returns the CFrame translated in world space by the negation of *op*.
-func (c CFrame) SubVec(op Vector3) CFrame {
+// SubV3 returns the CFrame translated in world space by the negation of *op*.
+func (c CFrame) SubV3(op Vector3) CFrame {
 	return CFrame{
 		Position: c.Position.Sub(op),
 		Rotation: c.Rotation,
