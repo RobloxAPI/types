@@ -6,11 +6,15 @@ type Ray struct {
 }
 
 func (r Ray) ClosestPoint(point Vector3) Vector3 {
-	panic("not implemented")
+	e := r.Direction.Dot(point.Sub(r.Origin))
+	if e <= 0 {
+		return r.Origin
+	}
+	return r.Direction.MulN(e).Add(r.Origin)
 }
 
 func (r Ray) Distance(point Vector3) float64 {
-	panic("not implemented")
+	return r.ClosestPoint(point).Sub(r.Origin).Magnitude()
 }
 
 // Type returns a string identifying the type.
