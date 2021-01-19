@@ -42,8 +42,14 @@ func NewCFrameFromVector3(v Vector3) CFrame {
 // NewCFrameFromLook returns a CFrame located at *pos*, facing towards *lookAt*.
 // The local upward direction is (0, 1, 0).
 func NewCFrameFromLook(pos, lookAt Vector3) CFrame {
+	return NewCFrameFromLookAt(pos, lookAt, Vector3{0, 1, 0})
+}
+
+// NewCFrameFromLookAt returns a CFrame located at *pos*, facing towards
+// *lookAt*, with the local upward direction determined by *up*.
+func NewCFrameFromLookAt(pos, lookAt, up Vector3) CFrame {
 	dir := lookAt.Sub(pos)
-	right := dir.Cross(Vector3{0, 1, 0})
+	right := dir.Cross(up)
 	if right.Dot(right) > 0 {
 		u := right.Cross(dir).Unit()
 		b := dir.Unit().Neg()
