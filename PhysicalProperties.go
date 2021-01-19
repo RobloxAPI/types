@@ -4,6 +4,7 @@ import (
 	"strconv"
 )
 
+// PhysicalProperties represent the physical properties of an object.
 type PhysicalProperties struct {
 	CustomPhysics    bool
 	Density          float32
@@ -13,11 +14,12 @@ type PhysicalProperties struct {
 	ElasticityWeight float32
 }
 
-// Type returns a string identifying the type.
+// Type returns a string that identifies the type.
 func (PhysicalProperties) Type() string {
 	return "PhysicalProperties"
 }
 
+// String returns a human-readable string representation of the value.
 func (p PhysicalProperties) String() string {
 	if !p.CustomPhysics {
 		return "(default)"
@@ -35,6 +37,7 @@ func (p PhysicalProperties) String() string {
 	return string(b)
 }
 
+// Copy returns a copy of the value.
 func (p PhysicalProperties) Copy() PropValue {
 	return p
 }

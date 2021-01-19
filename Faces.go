@@ -4,7 +4,8 @@ import (
 	"strconv"
 )
 
-// Axes represents a set of coordinate axes that are considered active.
+// Faces represents a set of directions, on three orthogonal axes, that are
+// considered active.
 type Faces struct {
 	Right, Top, Back, Left, Bottom, Front bool
 }
@@ -52,12 +53,12 @@ func NewFacesFromFace(faces ...Face) Faces {
 	return f
 }
 
-// Type returns a string identifying the type.
+// Type returns a string that identifies the type.
 func (Faces) Type() string {
 	return "Faces"
 }
 
-// String returns a string representation of the Faces.
+// String returns a human-readable string representation of the value.
 func (f Faces) String() string {
 	var b []byte
 	b = append(b, "Right:"...)
@@ -75,6 +76,7 @@ func (f Faces) String() string {
 	return string(b)
 }
 
+// Copy returns a copy of the value.
 func (f Faces) Copy() PropValue {
 	return f
 }

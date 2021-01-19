@@ -4,15 +4,17 @@ import (
 	"strconv"
 )
 
+// NumberRange represents a range between two numbers as a minimum and maximum.
 type NumberRange struct {
 	Min, Max float32
 }
 
-// Type returns a string identifying the type.
+// Type returns a string that identifies the type.
 func (NumberRange) Type() string {
 	return "NumberRange"
 }
 
+// String returns a human-readable string representation of the value.
 func (n NumberRange) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(n.Min), 'g', -1, 32)
@@ -21,6 +23,7 @@ func (n NumberRange) String() string {
 	return string(b)
 }
 
+// Copy returns a copy of the value.
 func (n NumberRange) Copy() PropValue {
 	return n
 }

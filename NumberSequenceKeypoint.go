@@ -4,6 +4,7 @@ import (
 	"strconv"
 )
 
+// NumberSequenceKeypoint is a keypoint in a NumberSequence.
 type NumberSequenceKeypoint struct {
 	Time     float32
 	Value    float32
@@ -15,6 +16,7 @@ func (NumberSequenceKeypoint) Type() string {
 	return "NumberSequenceKeypoint"
 }
 
+// String returns a human-readable string representation of the value.
 func (n NumberSequenceKeypoint) String() string {
 	var b []byte
 	b = strconv.AppendFloat(b, float64(n.Time), 'g', -1, 32)
@@ -25,6 +27,7 @@ func (n NumberSequenceKeypoint) String() string {
 	return string(b)
 }
 
+// Copy returns a copy of the value.
 func (n NumberSequenceKeypoint) Copy() PropValue {
 	return n
 }

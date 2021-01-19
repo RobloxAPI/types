@@ -4,20 +4,26 @@ import (
 	"math"
 )
 
+// Region3 represents an axis-aligned three-dimensional rectangular cuboid with
+// a lower and upper boundary.
 type Region3 struct {
 	Min, Max Vector3
 }
 
+// CFrame returns a CFrame with the default orientation, located at the center
+// of the region.
 func (r Region3) CFrame() CFrame {
 	cf := NewCFrame()
 	cf.Position = r.Min.Add(r.Max).DivN(2)
 	return cf
 }
 
+// Size returns the size of the region.
 func (r Region3) Size() Vector3 {
 	return r.Max.Sub(r.Min)
 }
 
+// sign returns the sign of x.
 func sign(x float32) float32 {
 	switch {
 	case x < 0:
@@ -29,6 +35,8 @@ func sign(x float32) float32 {
 	}
 }
 
+// rafz3 returns v with each component rounded, away from zero, to the nearest
+// integer.
 func rafz3(v Vector3) Vector3 {
 	v.X = sign(v.X) * float32(math.Ceil(math.Abs(float64(v.X))))
 	v.Y = sign(v.Y) * float32(math.Ceil(math.Abs(float64(v.Y))))
@@ -36,6 +44,8 @@ func rafz3(v Vector3) Vector3 {
 	return v
 }
 
+// ExpandToGrid returns the region expanded to align to the given resolution. If
+// *res* is 0, the region is returned unchanged.
 func (r Region3) ExpandToGrid(res float64) Region3 {
 	if res == 0 {
 		return r
@@ -45,11 +55,12 @@ func (r Region3) ExpandToGrid(res float64) Region3 {
 	return r
 }
 
-// Type returns a string identifying the type.
+// Type returns a string that identifies the type.
 func (Region3) Type() string {
 	return "Region3"
 }
 
+// String returns a human-readable string representation of the value.
 func (r Region3) String() string {
 	var b []byte
 	b = append(b, r.Min.String()...)
@@ -58,6 +69,7 @@ func (r Region3) String() string {
 	return string(b)
 }
 
+// Copy returns a copy of the value.
 func (r Region3) Copy() PropValue {
 	return r
 }

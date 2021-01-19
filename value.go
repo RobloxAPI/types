@@ -5,7 +5,7 @@ type Value interface {
 	Type() string
 }
 
-// Stringer is any Value that has a string representation.
+// Stringer is any Value that has a human-readable string representation.
 type Stringer interface {
 	Value
 	String() string
@@ -23,9 +23,8 @@ type Aliaser interface {
 	Alias() Value
 }
 
-// Stringlike is any Value that is string-like. Note that this is distinct from
-// a string-representation of the value. Rather, Stringlike indicates that the
-// value has string-like properties.
+// Stringlike is any Value that can be converted to a string. Note that this is
+// distinct from a Stringer, which returns the value in a human-readable format.
 type Stringlike interface {
 	Value
 	Stringlike() string

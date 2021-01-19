@@ -4,7 +4,8 @@ import (
 	"strconv"
 )
 
-// Axes represents a set of coordinate axes that are considered active.
+// Axes represents a set of orthogonal coordinate axes that are considered
+// active.
 type Axes struct {
 	X, Y, Z bool
 }
@@ -56,12 +57,12 @@ func (a Axes) Face(face Face) bool {
 	return false
 }
 
-// Type returns a string identifying the type.
+// Type returns a string that identifies the type.
 func (Axes) Type() string {
 	return "Axes"
 }
 
-// String returns a string representation of the Axes.
+// String returns a human-readable string representation of the value.
 func (a Axes) String() string {
 	var b []byte
 	b = append(b, "X:"...)
@@ -73,6 +74,7 @@ func (a Axes) String() string {
 	return string(b)
 }
 
+// Copy returns a copy of the value.
 func (a Axes) Copy() PropValue {
 	return a
 }

@@ -1,12 +1,14 @@
 package types
 
+// ColorSequence represents an interpolated sequence of colors.
 type ColorSequence []ColorSequenceKeypoint
 
-// Type returns a string identifying the type.
+// Type returns a string that identifies the type.
 func (ColorSequence) Type() string {
 	return "ColorSequence"
 }
 
+// String returns a human-readable string representation of the value.
 func (c ColorSequence) String() string {
 	var b []byte
 	for i, k := range c {
@@ -18,6 +20,7 @@ func (c ColorSequence) String() string {
 	return string(b)
 }
 
+// Copy returns a copy of the value.
 func (c ColorSequence) Copy() PropValue {
 	d := make(ColorSequence, len(c))
 	copy(d, c)
