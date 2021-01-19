@@ -227,6 +227,21 @@ func (c CFrame) LookVector() Vector3 {
 	return Vector3{-c.Rotation[2], -c.Rotation[5], -c.Rotation[8]}
 }
 
+// XVector returns the first row of the rotation matrix.
+func (c CFrame) XVector() Vector3 {
+	return Vector3{c.Rotation[0], c.Rotation[1], c.Rotation[2]}
+}
+
+// YVector returns the second row the rotation matrix.
+func (c CFrame) YVector() Vector3 {
+	return Vector3{c.Rotation[3], c.Rotation[4], c.Rotation[5]}
+}
+
+// ZVector returns the third row of the rotation matrix.
+func (c CFrame) ZVector() Vector3 {
+	return Vector3{c.Rotation[6], c.Rotation[7], c.Rotation[8]}
+}
+
 // Inverse returns the inverse of the CFrame.
 func (c CFrame) Inverse() CFrame {
 	return CFrame{
