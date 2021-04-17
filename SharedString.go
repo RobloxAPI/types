@@ -1,7 +1,7 @@
 package types
 
 // SharedString represents data that is shared by multiple objects.
-type SharedString []byte
+type SharedString string
 
 // Type returns a string that identifies the type.
 func (SharedString) Type() string {
@@ -15,9 +15,7 @@ func (s SharedString) String() string {
 
 // Copy returns a copy of the value.
 func (s SharedString) Copy() PropValue {
-	c := make(SharedString, len(s))
-	copy(c, s)
-	return c
+	return s
 }
 
 // Stringlike returns the value as a string.

@@ -1,6 +1,6 @@
 package types
 
-type BinaryString []byte
+type BinaryString string
 
 // Type returns a string that identifies the type.
 func (BinaryString) Type() string {
@@ -14,9 +14,7 @@ func (s BinaryString) String() string {
 
 // Copy returns a copy of the value.
 func (s BinaryString) Copy() PropValue {
-	c := make(BinaryString, len(s))
-	copy(c, s)
-	return c
+	return s
 }
 
 // Stringlike returns the value as a string.
