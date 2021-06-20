@@ -23,7 +23,7 @@ func (n NumberSequenceKeypoint) String() string {
 	b = append(b, ", "...)
 	b = strconv.AppendFloat(b, float64(n.Value), 'g', -1, 32)
 	b = append(b, ", "...)
-	b = strconv.AppendFloat(b, float64(n.Time), 'g', -1, 32)
+	b = strconv.AppendFloat(b, float64(n.Envelope), 'g', -1, 32)
 	return string(b)
 }
 

@@ -23,7 +23,7 @@ func (c ColorSequenceKeypoint) String() string {
 	b = append(b, ", ("...)
 	b = append(b, c.Value.String()...)
 	b = append(b, "), "...)
-	b = strconv.AppendFloat(b, float64(c.Time), 'g', -1, 32)
+	b = strconv.AppendFloat(b, float64(c.Envelope), 'g', -1, 32)
 	return string(b)
 }
 
