@@ -5,7 +5,7 @@ import (
 	"strconv"
 )
 
-// Vector2 is a three-dimensional Euclidean vector.
+// Vector3 is a three-dimensional Euclidean vector.
 type Vector3 struct {
 	X, Y, Z float32
 }
